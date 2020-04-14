@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Release</title>
+
+    <!-- Load Bulma from CDN (consider saving it to repository instead) -->
+    <!-- https://bulma.io/ -->
+    <link rel="stylesheet" href="https://jenil.github.io/bulmaswatch/darkly/bulmaswatch.min.css">
+
+    <!-- Load Font Awesome 5 (free) icons -->
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+    <script>
+    $(function(){
+      $("#footer").load("footer.html");
+      $("#navigation").load("navbar.html");
+    });
+    </script>
+  </head>
+
+  <body>
+
+  <div id="navigation"></div>
+
+  <section class="section">
+    <div class="container">
+      <!-- Begin page content -->
+      <div class="content">
+        <h4 id="alpha-release">Alpha Release</h4>
+        <ul>
+          <li>
+            <p><strong>Website Requirements:</strong></p>
+
+            <ul class="task-list">
+              <li class="task-list-item">
+                <p><input type="checkbox" class="task-list-item-checkbox" checked="checked"><strong> Home/Landing Page</strong>: the dedicated page that describes the <strong>overall narrative</strong> and provides <strong>clear navigation</strong> to the other pages.</p>
+              </li>
+              <li class="task-list-item">
+                <p><input type="checkbox" class="task-list-item-checkbox" checked="checked" ><strong> About Page</strong>: A separate page that describes you and your motivation behind this project.</p>
+              </li>
+              <li class="task-list-item">
+                <p><input type="checkbox" class="task-list-item-checkbox" checked="checked" ><strong> Dataset Page</strong>: A separate page that describes the original dataset. includes: the dataset <strong>attribution</strong>, the <strong>license</strong> for the dataset, the <strong>size</strong> of the dataset, the content of the dataset</p>
+              </li>
+              <li class="task-list-item">
+                <p><input type="checkbox" class="task-list-item-checkbox" checked="checked" ><strong> Prototypes Page or Section</strong>: A separate page (or pages) that will include your various prototypes and feedback you received on those prototypes.</p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p><strong> Prototype Requirements:</strong></p>
+
+            <ul class="task-list">
+              <li class="task-list-item">
+                <p><input type="checkbox" class="task-list-item-checkbox" checked="checked" > Create a simple prototype of your dataset</p>
+              </li>
+            </ul>
+          </li>
+
+      </div>
+      <!-- End page content -->
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <!-- End mobile menu responsiveness -->
+  </body>
+
+</html>

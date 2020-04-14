@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Data</title>
+
+    <!-- Load Bulma from CDN (consider saving it to repository instead) -->
+    <!-- https://bulma.io/ -->
+    <link rel="stylesheet" href="https://jenil.github.io/bulmaswatch/darkly/bulmaswatch.min.css">
+
+    <!-- Load Font Awesome 5 (free) icons -->
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script>
+    $(function(){
+      $("#footer").load("footer.html");
+      $("#navigation").load("navbar.html");
+    });
+    </script>
+  </head>
+
+  <body>
+
+  <div id="navigation"></div>
+
+  <section class="section">
+    <div class="container">
+      <!-- Begin page content -->
+      <div class="content">
+
+        <h2 id="data">Data Source</h2>
+
+        <!-- <p>Include some detailed information about the dataset here. You should <a href="#">add a link</a> to the original dataset. You might also want to quote the license:</p> -->
+
+        <h2 id="data">Data</h2>
+
+                <p>The data set was taken from Data SF and shows the <a href="https://data.sfgov.org/Culture-and-Recreation/Film-Locations-in-San-Francisco/yitu-d5am">Film Locations in San Francisco </a>.
+                <p>It collects data through a listing of filming locations of movies shot in San Francisco starting from 1924 to September 2019 (Access dataset on April 2020)</p>
+
+                <blockquote>
+                  <p>All data are under Public Domain Dedication and License (PDDL).</p>
+                  <p>From Open Data Commons webpage on PDDL:</p>
+                  <p>You are free to:</p>
+                  <p>1.To Share: To copy, distribute and use the database.</p>
+                  <p>2.To Create: To produce works from the database.</p>
+                  <p>3.To Adapt: To modify, transform and build upon the database.
+                  <cite> <a href="https://support.datasf.org/help/what-license-are-open-data-sets-under">--Data SF license information</a></cite>
+                </blockquote>
+
+                <p>The data itself is divided into 3 columns and many rows. (scrollable textbox area)</p>
+                <div style="height:400px;overflow:auto;">
+                <div id="dataviztable_30069">
+                  <table class="table is-bordered pricing__table is-fullwidth">
+                   <col width=209 style='mso-width-source:userset;mso-width-alt:6698;width:157pt'>
+                   <col width=149 style='mso-width-source:userset;mso-width-alt:4778;width:112pt'>
+                   <col width=208 span=2 style='mso-width-source:userset;mso-width-alt:6656;
+                   width:156pt'>
+                   <tr height=21 style='height:16.0pt'>
+                    <td height=21 class=xl63 width=209 style='height:16.0pt;width:157pt'>Field Name</td>
+                    <td class=xl63 width=149 style='border-left:none;width:112pt'>Data Type</td>
+                    <td class=xl63 width=208 style='border-left:none;width:156pt'>Definition</td>
+                   </tr>
+                   <tr height=113 style='height:85.0pt'>
+                    <td height=113 class=xl64 style='height:85.0pt;border-top:none'>Title</td>
+                    <td class=xl65 style='border-top:none;border-left:none'>Text</td>
+                    <td class=xl66 width=208 style='border-top:none;border-left:none;width:156pt'>Movie title.</td>
+                   </tr>
+                   <tr height=68 style='height:51.0pt' class="is-selected">
+                    <td height=68 class=xl64 style='height:51.0pt;border-top:none'>Release Year</td>
+                    <td class=xl65 style='border-top:none;border-left:none'>Number</td>
+                    <td class=xl66 width=208 style='border-top:none;border-left:none;width:156pt'>Date movie was released.</td>
+                   </tr>
+                   <tr height=68 style='height:51.0pt' class="is-selected">
+                    <td height=68 class=xl64 style='height:51.0pt;border-top:none'>Locations</td>
+                    <td class=xl65 style='border-top:none;border-left:none'>Text</td>
+                    <td class=xl66 width=208 style='border-top:none;border-left:none;width:156pt'>Location of filmning.</td>
+                   </tr>
+                   <tr height=68 style='height:51.0pt'>
+                    <td height=68 class=xl64 style='height:51.0pt;border-top:none'>Fun Facts</td>
+                    <td class=xl65 style='border-top:none;border-left:none'>Text</td>
+                    <td class=xl66 width=208 style='border-top:none;border-left:none;width:156pt'>Fun facts about the filming.</td>
+                   </tr>
+                   <tr height=45 style='height:34.0pt'>
+                    <td height=45 class=xl64 style='height:34.0pt;border-top:none'>Production Company</td>
+                    <td class=xl65 style='border-top:none;border-left:none'>Text</td>
+                    <td class=xl66 width=208 style='border-top:none;border-left:none;width:156pt'>Company that was producing the film.</td>
+                   </tr>
+                   <tr height=91 style='height:68.0pt'>
+                    <td height=91 class=xl64 style='height:68.0pt;border-top:none'>Distributer</td>
+                    <td class=xl64 style='border-top:none;border-left:none'>Text</td>
+                    <td class=xl66 width=208 style='border-top:none;border-left:none;width:156pt'>Distributer of the movie.</td>
+                   </tr>
+                   <tr height=68 style='height:51.0pt'>
+                    <td height=68 class=xl64 style='height:51.0pt;border-top:none'>Director</td>
+                    <td class=xl64 style='border-top:none;border-left:none'>Text</td>
+                    <td class=xl66 width=208 style='border-top:none;border-left:none;width:156pt'>Director of the film.</td>
+                   </tr>
+                   <tr height=91 style='height:68.0pt'>
+                    <td height=91 class=xl64 style='height:68.0pt;border-top:none'>Writer</td>
+                    <td class=xl64 style='border-top:none;border-left:none'>Text</td>
+                    <td class=xl66 width=208 style='border-top:none;border-left:none;width:156pt'>Writer of the movie.</td>
+                   </tr>
+                   <tr height=68 style='height:51.0pt'>
+                    <td height=68 class=xl64 style='height:51.0pt;border-top:none'>Actor 1</td>
+                    <td class=xl64 style='border-top:none;border-left:none'>Text</td>
+                    <td class=xl66 width=208 style='border-top:none;border-left:none;width:156pt'>First actor in the movie.</td>
+                   </tr>
+                   <tr height=113 style='height:85.0pt'>
+                    <td height=113 class=xl64 style='height:85.0pt;border-top:none'>Actor 2</td>
+                    <td class=xl64 style='border-top:none;border-left:none'>Text</td>
+                    <td class=xl66 width=208 style='border-top:none;border-left:none;width:156pt'>Second actor in the movie.</td>
+                   </tr>
+                   <tr height=68 style='height:51.0pt'>
+                    <td height=68 class=xl64 style='height:51.0pt;border-top:none'>Actor 3</td>
+                    <td class=xl64 style='border-top:none;border-left:none'>Text</td>
+                    <td class=xl66 width=208 style='border-top:none;border-left:none;width:156pt'>Third actor in the movie.</td>
+                   </tr>
+                   <tr height=0 style='display:none'>
+                    <td width=209 style='width:157pt'></td>
+                    <td width=149 style='width:112pt'></td>
+                    <td width=208 style='width:156pt'></td>
+                   </tr>
+                  </table>
+                </div>
+                </div>
+
+                <h2 id="data">Processing/Filtering</h2>
+
+                <p>For the collected data, null values were filtered out of the visualizations.</p>
+
+                <h2>Data wrangling</h2>
+                <p>Since the interest is on films from the 21st century, only data from the year 2000 and afterwards is being shown.</p>
+
+
+      </div>
+      <!-- End page content -->
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <!-- End mobile menu responsiveness -->
+  </body>
+
+</html>

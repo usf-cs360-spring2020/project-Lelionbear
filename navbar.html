@@ -1,0 +1,80 @@
+  <!-- Page header -->
+  <!-- https://bulma.io/documentation/layout/hero/ -->
+  <section class="hero is-primary">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title">Film Locations in San Francisco</h1>
+        <!-- <h2 class="subtitle">SF Fire Data Visualization's</h2> -->
+      </div>
+    </div>
+  </section>
+  <!-- End page header -->
+<!-- Page navigation -->
+<!-- https://bulma.io/documentation/components/navbar/ -->
+<nav class="navbar is-primary" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <!-- TODO: Change link to repository homepage if needed -->
+      <!-- TODO: Change which navbar-item is-active if needed -->
+      <a class="navbar-item" href="index.html">
+        <span class="icon"><i class="fas fa-home"></i></span>
+        <span>Home</span>
+      </a>
+
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="main-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="main-menu" class="navbar-menu has-text-weight-medium">
+      <!-- Left navbar items -->
+      <div class="navbar-start">
+        <a class="navbar-item" href="data.html" title="Data">
+          <span class="icon"><i class="fas fa-table"></i></span>
+          <span>Data</span>
+        </a>
+
+        <a class="navbar-item" href="visualization.html">
+          <span class="icon"><i class="fas fa-map-marked"></i></span>
+          <span>Visualization</span>
+        </a>
+      </div>
+
+      <!-- Right navbar items -->
+      <div class="navbar-end">
+        <!-- TODO: Update as needed -->
+        <a class="navbar-item" href="grade.html" title="Releases">
+          <span class="icon"><i class="fas fa-tasks"></i></span>
+          <span>Releases</span>
+        </a>
+
+        <a class="navbar-item" href="about.html" title="About">
+          <span class="icon"><i class="fas fa-info-circle"></i></span>
+          <span>About</span>
+        </a>
+      </div>
+    </div>
+  <!-- </div> -->
+</nav>
+<!-- End page navigation -->
+
+<!-- Mobile menu responsiveness -->
+<!-- https://bulma.io/documentation/components/navbar/ -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+  if ($navbarBurgers.length > 0) {
+    $navbarBurgers.forEach( el => {
+      el.addEventListener('click', () => {
+        const target = el.dataset.target;
+        const $target = document.getElementById(target);
+        el.classList.toggle('is-active');
+        $target.classList.toggle('is-active');
+      });
+    });
+  }
+});
+</script>
