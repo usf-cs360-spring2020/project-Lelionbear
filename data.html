@@ -39,6 +39,8 @@
 
         <h2 id="data">Data</h2>
 
+        <h3>Data SF</h3>
+
                 <p>The data set was taken from Data SF and shows the <a href="https://data.sfgov.org/Culture-and-Recreation/Film-Locations-in-San-Francisco/yitu-d5am">Film Locations in San Francisco </a>.
                 <p>It collects data through a listing of filming locations of movies shot in San Francisco starting from 1924 to September 2019 (Access dataset on April 2020)</p>
 
@@ -65,7 +67,7 @@
                     <td class=xl63 width=149 style='border-left:none;width:112pt'>Data Type</td>
                     <td class=xl63 width=208 style='border-left:none;width:156pt'>Definition</td>
                    </tr>
-                   <tr height=113 style='height:85.0pt'>
+                   <tr height=113 style='height:85.0pt' class="is-selected">
                     <td height=113 class=xl64 style='height:85.0pt;border-top:none'>Title</td>
                     <td class=xl65 style='border-top:none;border-left:none'>Text</td>
                     <td class=xl66 width=208 style='border-top:none;border-left:none;width:156pt'>Movie title.</td>
@@ -105,7 +107,7 @@
                     <td class=xl64 style='border-top:none;border-left:none'>Text</td>
                     <td class=xl66 width=208 style='border-top:none;border-left:none;width:156pt'>Writer of the movie.</td>
                    </tr>
-                   <tr height=68 style='height:51.0pt'>
+                   <tr height=68 style='height:51.0pt' class="is-selected">
                     <td height=68 class=xl64 style='height:51.0pt;border-top:none'>Actor 1</td>
                     <td class=xl64 style='border-top:none;border-left:none'>Text</td>
                     <td class=xl66 width=208 style='border-top:none;border-left:none;width:156pt'>First actor in the movie.</td>
@@ -129,12 +131,33 @@
                 </div>
                 </div>
 
+                <h3>IMDbPY API Module</h3>
+                <p>
+                  IMDbPY is a Python package for retrieving and managing the data of the IMDb movie database about movies and people.
+                  <br>
+                  Released under the terms of the <a href="https://raw.githubusercontent.com/alberanid/imdbpy/master/LICENSE.txt">GPL 2 license or later.</a>
+                  <br>
+                  Utilized this API to retrieve data from both the IMDb’s web server, or a local copy of the database.
+                </p>
+
                 <h2 id="data">Processing/Filtering</h2>
+                <p>
+                  For the collected data, null values were filtered out of the visualizations.
+                  Further processing includeing using python's IMDb module to retrieve proper title name
+                  to use in the new csv "myData.csv". Because the module was used to create a new dataset,
+                  some movies were unable to be found using the module so those movies were excluded from
+                  "myData.csv" as they were incomplete for the use of the visualization.
+                </p>
 
-                <p>For the collected data, null values were filtered out of the visualizations.</p>
-
-                <h2>Data wrangling</h2>
-                <p>Since the interest is on films from the 21st century, only data from the year 2000 and afterwards is being shown.</p>
+                <h2 id="wrangling">Data wrangling</h2>
+                <p>
+                  Since the interest is on films from the 21st century, only data from the year 2000
+                  and afterwards were selected. Afterwards, using python's IMDb module, I retrieved the
+                  rating score of the movie filmed and combined the data into a new csv file called "myData.csv".
+                  <br><br>
+                  I also formated the new data to be nested so that the D3 is able to utilize and project a
+                  dentree visualization.
+                </p>
 
 
       </div>
