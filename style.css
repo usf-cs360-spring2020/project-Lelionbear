@@ -1,0 +1,106 @@
+svg {
+  // border: 1px dotted whitesmoke;
+}
+.node {
+  stroke: silver;
+  stroke-width: 1px;
+}
+
+.link {
+  fill: none;
+  stroke: silver;
+  stroke-width: 1px;
+}
+
+.selected {
+  stroke: red !important;
+}
+
+text#tooltip {
+  font-family: sans-serif;
+  font-size: 12px;
+  text-shadow: 1px 1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, -1px -1px 0 #fff;
+  font-weight: 900;
+}
+
+
+/* body {
+  background-color: white;
+  text-align: center;
+
+  font-family: sans-serif;
+  font-size: 9pt;
+}
+
+#tooltip {
+  font-weight: 600;
+  text-shadow: 0px 0px 2px white;
+
+  fill: black;
+  stroke: none;
+}
+
+path.land {
+  fill: #dddddd;
+  stroke: none;
+}
+
+path.neighborhood {
+  fill: none;
+  stroke: white;
+  stroke-width: 3.5px;
+  pointer-events: none;
+}
+
+path.street {
+  fill: none;
+  stroke: white;
+  stroke-width: 1px;
+  pointer-events: none;
+}
+
+.active {
+  stroke: red !important;
+  stroke-width: 1.5px !important;
+}
+
+circle.symbol {
+  fill-opacity: 0.6;
+
+  stroke: white;
+  stroke-width: 1px;
+}
+
+a:link, a:visited {
+  color: #444444;
+}
+
+a:hover, a:active {
+  color: red;
+}
+
+th {
+  text-align: right;
+}
+
+/* kjlasdf
+https://www.google.com/search?q=Tower+Fall!!!!!!!!!!!!&rlz=1C5CHFA_enUS889US892&oq=Tower+Fall!!!!!!!!!!!!&aqs=chrome..69i57j46l2j0l4.639j0j7&sourceid=chrome&ie=UTF-8
+https://angel.co/company/goodtimeio/jobs
+https://angel.co/company/coffee-meets-bagel/jobs
+https://angel.co/company/awair/jobs/
+https://angel.co/company/goodtimeio/jobs
+https://angel.co/company/airtable/jobs
+https://ismyinternshipcancelled.com/?company=&status=hiring
+https://candor.co/hiring-freezes/
+https://careers.bloomberg.com/job/detail/80525
+https://www.levels.fyi/still-hiring/
+https://lasr.cs.ucla.edu/vahab/resources/compression_detection.pdf
+
+
+https://pixabay.com/images/search/san%20francisco/
+https://www.google.com/search?q=pexels&rlz=1C5CHFA_enUS889US892&oq=pexels&aqs=chrome..69i57j0l6j5.1622j0j7&sourceid=chrome&ie=UTF-8
+https://www.google.com/search?q=unsplash&rlz=1C5CHFA_enUS889US892&oq=unsplash&aqs=chrome..69i57j0l6j5.2979j1j7&sourceid=chrome&ie=UTF-8
+
+ENTJ-A
+ISFJ-T
+asdfa */
