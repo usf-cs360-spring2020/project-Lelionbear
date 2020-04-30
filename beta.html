@@ -80,6 +80,8 @@
           to display the information from each node, which will be important to see the differences in the data. Additionaly, I would use filtering
           to highlight the parent nodes and other nodes with the same data inside and to see the path. I plan on implementing a filter based on the movie genre so
           one can differenciate the movie.
+          Each color coded node represents a depth in the hierarchy: yellow, green, blue, and violet.
+          Representing the city, rating, actor, and movie.
         </p>
 
         <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -274,7 +276,7 @@
           return 'translate(' + String(x) + ',' + String(y) + ')';
         }
 
-        var color;
+        let color;
         var color_map;
 
 
@@ -394,6 +396,72 @@
 
           setupEvents(plot, rects, false);
         }
+
+        let svg = d3.select("body").select("svg#vis_2");
+
+        svg.append("circle")
+          .attr("cx", width - 200)
+          .attr("cy", height - 120)
+          .attr("r", 5)
+          .style("fill", "#451a54")
+          .style("stroke", "black");
+
+        svg.append("circle")
+          .attr("cx", width - 200)
+          .attr("cy", height - 140)
+          .attr("r", 5)
+          .style("fill",  "#31688e")
+          .style("stroke", "black")
+
+        svg.append("circle")
+          .attr("cx", width - 200)
+          .attr("cy", height - 160)
+          .attr("r", 5)
+          .style("fill",  "#54b879")
+          .style("stroke", "black")
+
+        svg.append("circle")
+          .attr("cx", width - 200)
+          .attr("cy", height - 180)
+          .attr("r", 5)
+          .style("fill", "yellow")
+          .style("stroke", "black")
+
+        //add text
+        svg.append("text")
+          .attr("class", "legend-text")
+          .attr("x", width - 180)
+          .attr("y", height - 120)
+          .text("movie")
+          .style("fill", "white")
+          .attr("alignment-baseline", "middle")
+
+        svg
+          .append("text")
+          .attr("class", "legend-text")
+          .attr("x", width - 180)
+          .attr("y", height - 140)
+          .text("actor")
+          .style("fill", "white")
+          .attr("alignment-baseline", "middle")
+
+        svg
+          .append("text")
+          .attr("class", "legend-text")
+          .attr("x", width - 180)
+          .attr("y", height - 160)
+          .text("rating")
+          .style("fill", "white")
+          .attr("alignment-baseline", "middle")
+
+        svg
+          .append("text")
+          .attr("class", "legend-text")
+          .attr("x", width - 180)
+          .attr("y", height - 180)
+          .text("city")
+          .style("fill", "white")
+          .attr("alignment-baseline", "middle")
 
         </script>
 </html>
