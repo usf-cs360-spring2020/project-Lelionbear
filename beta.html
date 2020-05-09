@@ -103,6 +103,7 @@
             .data(links)
             .enter()
             .append('path')
+            .style("stroke", "gray")
             .attr('d', generator)
             .attr('class', 'link');
         }
