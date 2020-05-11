@@ -66,13 +66,12 @@ d3.csv("sunburst.csv").then(function(csv) {
     root = d3.hierarchy(data, function(d) {
       return d.values;
     }).sum(function (d) {
-      return d.value.length;
       // console.log(d.value);
-      // if(d.value != undefined)
-      // {
-      //   // console.log(d.value.length);
-      //   return d.value.length;
-      // }
+      if(d.value != undefined)
+      {
+        // console.log(d.value.length);
+        return d.value.length;
+      }
     })
     .sort(function(a, b) { return b.value.length - a.value.length; });
 
