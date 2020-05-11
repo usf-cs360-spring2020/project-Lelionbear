@@ -52,7 +52,7 @@ function makeDentree(obj){
     // .key(function(d) { return d["genre"]; })
     .key(function(d) { return d["decade"]; })
     .key(function(d) { return d["year"]; })
-    .key(function(d) { return d["net"]; })
+    .key(function(d) { return d["vote_average"]; })
     .rollup(function(d) {
       // console.log(d[0]["id"]);
       return d[0]["title"];
@@ -246,7 +246,8 @@ function showTooltip(g, node) {
 
   // use node name and total size as tooltip text
   // let text = `${name} (${numberFormat(datum.data.total)}, ${numberFormat(datum.data.leaves)}n)`;
-  let text = title === undefined ? `${rating}` : `${title} PROFIT --> $${rating}`;
+  // let text = title === undefined ? `${rating}` : `${title} PROFIT --> $${rating}`;
+  let text = title === undefined ? `${rating}` : `${title} VOTE AVG --> ${rating}`;
   // if(title === undefined)
   // {
   //   text = `${rating}`;

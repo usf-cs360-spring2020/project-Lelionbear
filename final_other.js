@@ -16,6 +16,7 @@ function makeCirclepacking(data) {
     .rollup(function(d) {
       // console.log(d[0]["id"]);
       return +d[0]["revenue"];
+      // return +d[0]["vote_average"];
       // return {
       //   length : d[0]["vote_average"],
       //   budget : +d[0]["budget"],
@@ -180,15 +181,15 @@ function showTooltip_2(g, node) {
 
   // remove "java.base." from the node name
   let rating = datum.data.key; //.replace("java\.base\.", "");
-  let title = datum.data.value;
+  let title = datum.data.value; // revenue
   console.log("datum");
   // console.log(datum.data.value["length"]);
   console.log(title)
 
   // use node name and total size as tooltip text
   // let text = `${name} (${numberFormat(datum.data.total)}, ${numberFormat(datum.data.leaves)}n)`;
-  // let text = title === undefined ? `${rating}` : `${title} --> $${rating}`;
-  let text = `${rating}`;
+  let text = title === undefined ? `${rating}` : `${rating} REVENUE --> $${title}`;
+  // let text = `${rating}`;
   // if(title === undefined)
   // {
   //   text = `${rating}`;
