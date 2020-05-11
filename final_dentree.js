@@ -42,7 +42,7 @@ function makeDentree(obj){
 
   console.log("DENTREE");
 
-  var width = 960;
+  var width = 500;
   var height = 500;
   var pad = 14;
   var diameter = Math.min(width, height);
@@ -178,7 +178,7 @@ function setupEvents(g, selection, raise) {
       selection.filter(e => (d.data.key !== e.data.key && e.height !== 2 && e.data.key !== d.parent.data.key))// function?
         .transition()
         .duration(500)
-        .attr("fill-opacity", "0.1")
+        .attr("fill-opacity", "0.15")
         .style("stroke", "")
     }
 
@@ -246,7 +246,7 @@ function showTooltip(g, node) {
 
   // use node name and total size as tooltip text
   // let text = `${name} (${numberFormat(datum.data.total)}, ${numberFormat(datum.data.leaves)}n)`;
-  let text = title === undefined ? `${rating}` : `${title} --> $${rating}`;
+  let text = title === undefined ? `${rating}` : `${title} PROFIT --> $${rating}`;
   // if(title === undefined)
   // {
   //   text = `${rating}`;

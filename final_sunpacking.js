@@ -212,4 +212,12 @@ d3.csv("sunburst.csv").then(function(csv) {
 
       //d3.select("#sidebar").text("another!");
 
-  };
+  }
+
+  function arcVisible(d) {
+    return d.y1 <= 3 && d.y0 >= 1 && d.x1 > d.x0;
+  }
+
+  function labelVisible(d) {
+    return d.y1 <= 3 && d.y0 >= 1 && (d.y1 - d.y0) * (d.x1 - d.x0) > 0.03;
+  }

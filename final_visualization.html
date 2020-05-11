@@ -18,9 +18,9 @@
     <script src="https://d3js.org/d3.v5.min.js"></script>
 
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-
+    <link rel="stylesheet" href="style.css">
 </head>
-  <body>
+<body>
 
   <div id="navigation"></div>
   <script>
@@ -37,27 +37,35 @@
           Final Visualization
         </h1>
         <p class="subtitle" align="center">By Arturo Galvan-Alarcon</p>
+        <br>
 
-        <h2 class="title" align="center">Sunburst Layout</h2>
-        <div align="center">
-          <figure>
-            <svg width="900" height="900" id="vis_1"></svg>
-          </figure>
+        <div class="container">
+          <div class="tile is-ancestor">
+            <div class="tile is-parent is-6">
+              <div class="tile is-child">
+                <figure>
+                  <svg style="background: whitesmoke;" id="vis_1"></svg>
+                </figure>
+                <p class="subtitle" align="center">
+                  Click on a genre/decade
+                  <br>
+                  Hover over an arc for number of movies
+                </p>
+              </div>
+            </div>
+
+            <div class="tile is-parent is-6">
+              <div class="tile is-child">
+                <figure>
+                  <svg style="background: whitesmoke;" id="vis_2"></svg>
+                </figure>
+                <p class="subtitle" align="center">Hover over for more information</p>
+              </div>
+            </div>
+          </div>
+
+          <attributes>https://bl.ocks.org/denjn5/6d161cb24695c8df503f9109045ea629</attributes>
         </div>
-
-        <h2 class="ttile" align="center">
-          Question
-        </h2>
-        <p align="center">
-          TODO
-        </p>
-
-        <h2 class="ttile" align="center">
-          Answer
-        </h2>
-        <p align="center">
-          TODO
-        </p>
 
         <h2 class="ttile" align="center">
           Encoding
@@ -73,369 +81,23 @@
           TODO
         </p>
 
-        <script src="https://d3js.org/d3.v5.min.js"></script>
-        <!-- <script src="final_sunpacking.js"></script> -->
-        <!-- <script>
+        <h2 class="ttile" align="center">
+          Findings
+        </h2>
+        <p align="center">
+          TODO
+        </p>
 
-        d3.json("flare-2.json").then(function(data) {
 
-            console.log(data);
 
-            width = 975;
-            radius = width / 2;
+      </div>
+    </div>
+  </section>
+</body>
 
-            arc = d3.arc()
-                .startAngle(d => d.x0)
-                .endAngle(d => d.x1)
-                .padAngle(d => Math.min((d.x1 - d.x0) / 2, 0.005))
-                .padRadius(radius / 2)
-                .innerRadius(d => d.y0)
-                .outerRadius(d => d.y1 - 1);
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="final_sunpacking.js"></script>
+<script src="final_dentree.js"></script>
+<script src="final_other.js"></script>
 
-            partition = data => d3.partition()
-                .size([2 * Math.PI, radius])
-                (d3.hierarchy(data)
-                .sum(d => d.value)
-                .sort((a, b) => b.value - a.value));
-
-            color = d3.scaleOrdinal(d3.quantize(d3.interpolateRainbow, data.children.length + 1));
-
-            function autoBox() {
-                document.body.appendChild(this);
-                const {x, y, width, height} = this.getBBox();
-                document.body.removeChild(this);
-                return [x, y, width, height];
-            }
-
-            format = d3.format(",d");
-
-            const root = partition(data);
-
-            const svg = d3.select("body").select("vis_1");
-
-            svg.append("g")
-                .attr("fill-opacity", 0.6)
-                .selectAll("path")
-                .data(root.descendants().filter(d => d.depth))
-                .join("path")
-                .attr("fill", d => { while (d.depth > 1) d = d.parent; return color(d.data.name); })
-                .attr("d", arc)
-                .append("title")
-                .text(d => `${d.ancestors().map(d => d.data.name).reverse().join("/")}\n${format(d.value)}`);
-
-            svg.append("g")
-                .attr("pointer-events", "none")
-                .attr("text-anchor", "middle")
-                .attr("font-size", 10)
-                .attr("font-family", "sans-serif")
-                .selectAll("text")
-                .data(root.descendants().filter(d => d.depth && (d.y0 + d.y1) / 2 * (d.x1 - d.x0) > 10))
-                .join("text")
-                .attr("transform", function(d) {
-                    const x = (d.x0 + d.x1) / 2 * 180 / Math.PI;
-                    const y = (d.y0 + d.y1) / 2;
-                    return `rotate(${x - 90}) translate(${y},0) rotate(${x < 180 ? 0 : 180})`;
-                })
-                .attr("dy", "0.35em")
-                .text(d => d.data.name);
-
-            // svg.attr("viewBox", autoBox).node();
-            });
-        </script> -->
-        <script>
-
-          // Variables
-          var width = 500;
-          var height = 500;
-          var radius = Math.min(width, height) / 2;
-          // var color = d3.scaleOrdinal(d3.quantize(d3.interpolateRainbow, root.children.length + 1));
-
-          // Create primary <g> element
-          var svg = d3.select("body").select("svg");
-          var root
-          var sunburst_data
-          var other_data
-
-          var g = svg
-              .attr('width', width)
-              .attr('height', height)
-              .append('g')
-              .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
-
-          // Data strucure
-          var partition = d3.partition()
-              .size([2 * Math.PI, radius]);
-
-          format = d3.format(",d");
-
-          d3.csv("sunburst.csv").then(function(csv) {
-
-            console.log(csv);
-
-            sunburst_data = d3.nest()
-                .key(function(d) { return d["city"]; })
-                .key(function(d) { return d["genre"]; })
-                .key(function(d) { return d["decade"]; })
-                // .key(function(d) { return d["id"]; })
-                .rollup(function(leaves) { return leaves.length; })
-                .entries(csv);
-
-            other_data = d3.nest()
-                .key(function(d) { return d["decade"]; })
-                .key(function(d) { return d["year"]; })
-                .key(function(d) { return d["vote_average"]; })
-                .rollup(function(leaves) { return leaves.length; })
-                .entries(csv);
-
-            console.log(sunburst_data[0]);
-            console.log(other_data);
-
-            drawSunburst_highlight(sunburst_data[0]);
-            });
-
-            function drawSunburst_highlight(data){
-              // console.log("in here");
-
-              root = d3.hierarchy(data, function(d) {
-                return d.values;
-              }).sum(function (d) { return d.value})
-                .sort(function(a, b) { return b.value - a.value; });
-
-              var color = d3.scaleOrdinal(d3.quantize(d3.interpolateRainbow, root.children.length + 1));
-
-              // Size arcs
-              partition(root);
-              var arc = d3.arc()
-                  .startAngle(function (d) { return d.x0 })
-                  .endAngle(function (d) { return d.x1 })
-                  .innerRadius(function (d) { return d.y0 })
-                  .outerRadius(function (d) { return d.y1 });
-
-              slice = g.selectAll('g.node')
-                       .data(root.descendants(), function(d) { return d.data.key; }); // .enter().append('g').attr("class", "node");
-              newSlice = slice.enter()
-                              .append('g')
-                              .attr("class", "node")
-                              .merge(slice);
-              slice.exit()
-                   .remove();
-
-
-              slice.selectAll('path')
-                   .remove();
-              newSlice.append('path')
-                    .attr("display", function (d) { return d.depth ? null : "none"; })
-                    .attr("d", arc)
-                    .style('stroke', '#fff')
-                    .attr("fill", d => { while (d.depth > 1) d = d.parent; return color(d.data.key); })
-                    .append("title")
-                    .text(d => `Number of movies: ${format(d.value)}`);
-
-              // Populate the <text> elements with our data-driven titles.
-              slice.selectAll('text')
-                   .remove();
-              newSlice.append("text")
-                  .attr("pointer-events", "none")
-                  .attr("text-anchor", "middle")
-                  .attr("font-size", 10)
-                  .attr("font-family", "sans-serif")
-                  .attr("transform", function(d) {
-                      const x = (d.x0 + d.x1) / 2 * 180 / Math.PI;
-                      const y = (d.y0 + d.y1) / 2;
-                      return `rotate(${x - 90}) translate(${y},0) rotate(${x < 180 ? 0 : 180})`;
-                  })
-                  .attr("dy", ".35em")
-                  .text(function(d) { return d.parent ? d.data.key : "" });
-
-              newSlice.on("click", highlightSelectedSlice);
-            }
-
-            function drawSunburst(data){
-
-              var root = d3.hierarchy(data, function(d) {
-                return d.values;
-              }).sum(function (d) { return d.value})
-                .sort(function(a, b) { return b.value - a.value; });;
-
-              var color = d3.scaleOrdinal(d3.quantize(d3.interpolateRainbow, root.children.length + 1));
-
-              // Size arcs
-              partition(root);
-              var arc = d3.arc()
-                  .startAngle(function (d) { return d.x0 })
-                  .endAngle(function (d) { return d.x1 })
-                  .innerRadius(function (d) { return d.y0 })
-                  .outerRadius(function (d) { return d.y1 });
-
-
-              svg.append("g")
-                  .attr("fill-opacity", 0.9)
-                  .selectAll("path")
-                  .data(root.descendants().filter(d => d.depth))
-                  .join("path")
-                  .attr("display", function (d) { return d.depth ? null : "none"; })
-                  .attr("d", arc)
-                  .style('stroke', '#fff')
-                  .attr("fill", d => { while (d.depth > 1) d = d.parent; return color(d.data.key); })
-                  .attr('transform', 'translate(' + 500 / 2 + ',' + 500 / 2 + ')')
-                  .append("title")
-                  .text(d => `${format(d.value)}`);
-                  // .text(d => `${d.ancestors().map(d => d.data.key).reverse().join("/")}\n${format(d.value)}`);
-
-
-              svg.append("g")
-                  .attr('transform', 'translate(' + 500 / 2 + ',' + 500 / 2 + ')')
-                  .attr("pointer-events", "none")
-                  .attr("text-anchor", "middle")
-                  .attr("font-size", 10)
-                  .attr("font-family", "sans-serif")
-                  .selectAll("text")
-                  .data(root.descendants().filter(d => d.depth && (d.y0 + d.y1) / 2 * (d.x1 - d.x0) > 10))
-                  .join("text")
-                  .attr("transform", function(d) {
-                      const x = (d.x0 + d.x1) / 2 * 180 / Math.PI;
-                      const y = (d.y0 + d.y1) / 2;
-                      return `rotate(${x - 90}) translate(${y},0) rotate(${x < 180 ? 0 : 180})`;
-                  })
-                  .attr("dy", "0.35em")
-                  .text(d => d.data.key);
-              //
-              // // svg.attr("viewBox", autoBox).node();
-              // // setupEvents(g, circles, raise);
-              // setupEvents(svg.append("g"), a, false);
-            }
-
-            function highlightSelectedSlice(c,i) {
-
-                clicked = c;
-                var rootPath = clicked.path(root);//.reverse();
-                var dec = clicked.path(root)[0].data.key;
-                var gen = clicked.path(root)[1].data.key;
-                // var obj = null;
-
-                if (!isNaN(dec))
-                {
-                  other_data.forEach((item, i) => {
-                    // console.log(item);
-                    if(item.key === dec)
-                    {
-                      // obj = item;
-                      console.log(item);
-                      other_root = d3.hierarchy(item, function(d) {
-                        return d.values;
-                      }).sum(function (d) { return d.value})
-                        .sort(function(a, b) { return b.value - a.value; });
-                    }
-                    else if(item.key == gen)
-                    {
-                      // obj = item;
-                      console.log(item);
-                      other_root = d3.hierarchy(item, function(d) {
-                        return d.values;
-                      }).sum(function (d) { return d.value})
-                        .sort(function(a, b) { return b.value - a.value; });
-                    }
-                  });
-                }
-
-
-                rootPath.shift(); // remove root node from the array
-                console.log(dec);
-                console.log(gen);
-                console.log(other_root);
-                // console.log(obj);
-
-
-
-                // rootPath.shift(); // remove root node from the array
-
-                newSlice.style("opacity", 0.4);
-                newSlice.filter(function(d) {
-                    if (d === clicked && d.prevClicked) {
-                        d.prevClicked = false;
-                        newSlice.style("opacity", 1);
-                        return true;
-
-                    } else if (d === clicked) {
-                        d.prevClicked = true;
-                        return true;
-                    } else {
-                        d.prevClicked = false;
-                        return (rootPath.indexOf(d) >= 0);
-                    }
-                })
-                    .style("opacity", 1);
-
-                //d3.select("#sidebar").text("another!");
-
-            };
-
-            function computeTextRotation(d) {
-                var angle = (d.x0 + d.x1) / Math.PI * 90;
-
-                // Avoid upside-down labels
-                return (angle < 120 || angle > 270) ? angle : angle + 180;  // labels as rims
-                //return (angle < 180) ? angle - 90 : angle + 90;  // labels as spokes
-            }
-
-
-
-
-
-            function setupEvents(g, selection, raise) {
-              selection.on('mouseover.highlight', function(d) {
-                if (d.height === 0 || d.height === 1) {
-                  selection.filter(e => (d.data.key !== e.data.key && e.height !== 2 && e.data.key !== d.parent.data.key))// function?
-                    .transition()
-                    .duration(500)
-                    .attr("fill-opacity", "0.1")
-                    .style("stroke", "")
-                }
-
-                // https://github.com/d3/d3-hierarchy#node_path
-                // returns path from d3.select(this) node to selection.data()[0] root node
-                let path = d3.select(this).datum().path(selection.data()[0]);
-
-                // select all of the nodes on the shortest path
-                // let update = selection.data(path, node => node.data.key);
-                let update = selection.data(path, node => node.x && node.y);
-
-                // highlight the selected nodes
-                update.classed('selected', true);
-
-                if (raise) {
-                  update.raise();
-                }
-              });
-
-              selection.on('mouseout.highlight', function(d) {
-                selection
-                  .transition()
-                  .attr("fill-opacity", "1")
-                  .style('stroke', 'black'); 
-                let path = d3.select(this).datum().path(selection.data()[0]);
-                // let update = selection.data(path, node => node.data.key);
-                let update = selection.data(path, node => node.x && node.y);
-                update.classed('selected', false);
-              });
-
-              // show tooltip text on mouseover (hover)
-              selection.on('mouseover.tooltip', function(d) {
-                showTooltip(g, d3.select(this));
-              });
-
-              // remove tooltip text on mouseout
-              selection.on('mouseout.tooltip', function(d) {
-                g.select("#tooltip").remove();
-              });
-            }
-
-            function autoBox() {
-                document.body.appendChild(this);
-                const {x, y, width, height} = this.getBBox();
-                document.body.removeChild(this);
-                return [x, y, width, height];
-            }
-
-        </script>
 </html>
