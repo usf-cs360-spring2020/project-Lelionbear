@@ -92,8 +92,14 @@ for line in open('movie_ids_05_04_2020.json', 'r'):
 print("city,genre,year,decade,id,title,release_date,net,budget,revenue,vote_average")
 for item in unique:
     DMDB_year = int(item['release_date'][:4])
-    three = DMDB_year // 10
-    DMDB_modYear = int(str(three) + '0')
+
+
+    # three = DMDB_year // 10
+    # DMDB_modYear = int(str(three) + '0')
+
+    DMDB_modYear = (DMDB_year // 5) * 5
+
+
     DMDB_id = item['imdb_id']
     DMDB_title = item['title']
     DMDB_release_date = item['release_date']
