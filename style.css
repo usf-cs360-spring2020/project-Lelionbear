@@ -1,10 +1,13 @@
 svg {
-  // border: 1px dotted whitesmoke;
+  /* border: 1px dotted whitesmoke; */
+  /* background: whitesmoke; */
+  height: 500px;
+  width: 500px;
 }
-.node {
+/* .node {
   stroke: silver;
   stroke-width: 1px;
-}
+} */
 
 .link {
   fill: none;
