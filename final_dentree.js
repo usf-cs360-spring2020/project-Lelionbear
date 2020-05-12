@@ -53,6 +53,7 @@ function makeDentree(obj){
     .key(function(d) { return d["decade"]; })
     .key(function(d) { return d["year"]; })
     .key(function(d) { return d["vote_average"]; })
+    // .key(function(d) { return d["title"]; })
     .rollup(function(d) {
       // console.log(d[0]["id"]);
       return d[0]["title"];
@@ -68,6 +69,7 @@ function makeDentree(obj){
   console.log(other_root);
 
   other_color = d3.scaleSequential([other_root.height, 0], d3.interpolateViridis);
+  // other_color = d3.scaleSequential([15, 0], d3.interpolateRainbow);
 
   other_root.sort(function(a, b) {
     return b.height - a.height || b.count - a.count;
@@ -159,15 +161,38 @@ function drawLinks(g, links, generator) {
 
 function drawNodes(g, nodes, raise) {
   let circles = g.selectAll('circle')
-    .data(nodes, node => node.data.key)
+    .data(nodes, function(node) {
+      // console.log(+node.data.key < 100);
+      return node.data.key;
+    })
     .enter()
     .append('circle')
-      .attr('r', d => d.r ? d.r : r)
+      // .attr('r', d => d.r ? d.r : r)
+      .attr('r', r)
+      // .attr('r', d => +d.data.key < 100 && +d.data.key !== 0 ? +d.data.key * 2 : r)
       .attr('cx', d => d.x)
       .attr('cy', d => d.y)
       .attr('id', d => d.data.key)
       .attr('class', 'node')
-      .style('fill', d => other_color(d.depth));
+      .style('fill', function(d) {
+        rating_color = d3.scaleSequential([0, 85], d3.interpolatePurples);
+        temp = Math.floor(+d.data.key);
+        if(temp < 100 && temp !== 0)
+        {
+          console.log((temp));
+          return rating_color(temp*10);
+        }
+        else if (temp === 0)
+        {
+          console.log(temp);
+          return rating_color(temp+10);
+        }
+        else
+        {
+          return other_color(d.depth);
+        }
+      })
+      // .style('fill', d => other_color(d.depth));
 
   setupEvents(g, circles, raise);
 }

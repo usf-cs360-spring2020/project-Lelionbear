@@ -1,6 +1,6 @@
 function makeCirclepacking(data) {
   height = 500;
-  r = 5;
+  r = 8;
   pad = 14;
   diameter = Math.min(width, height);
 
