@@ -11,7 +11,7 @@ ia = IMDb()
 # saved_column = df['Title']
 url_1 = "https://api.themoviedb.org/3/movie/"
 url_2 = "?api_key=e3ef60f0734139ce8ab92d2438a45d87&language=en-US"
-year_limit = 2000
+year_limit = 1950
 # collection = {'San Francisco':[]}
 titles = []
 year = []
@@ -94,10 +94,10 @@ for item in unique:
     DMDB_year = int(item['release_date'][:4])
 
 
-    # three = DMDB_year // 10
-    # DMDB_modYear = int(str(three) + '0')
+    three = DMDB_year // 10
+    DMDB_modYear = int(str(three) + '0')
 
-    DMDB_modYear = (DMDB_year // 5) * 5
+    # DMDB_modYear = (DMDB_year // 5) * 5
 
 
     DMDB_id = item['imdb_id']

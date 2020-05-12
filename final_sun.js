@@ -40,7 +40,7 @@ var arc = d3.arc()
     .innerRadius(d => d.y0 * sun_radius)
     .outerRadius(d => Math.max(d.y0 * sun_radius, d.y1 * sun_radius - 1))
 
-d3.csv("sunburst.csv").then(function(csv) {
+d3.csv("sunburst_3.csv").then(function(csv) {
 
   console.log(csv);
 
@@ -107,6 +107,7 @@ d3.csv("sunburst.csv").then(function(csv) {
       .on("click", clicked);
 
     path.on("click", clicked);
+    // path.on("dblclick", dblclick);
 
     path.append("title")
         .text(d => `Number of movies: ${format(d.value)}`);
@@ -156,6 +157,11 @@ d3.csv("sunburst.csv").then(function(csv) {
 //       .size([2 * Math.PI, root.height + 1])
 //     (root);
 // }
+
+function dblclick(p) {
+  var send_me = p.path(root);
+  console.log(send_me);
+}
 
 function clicked(p) {
 
