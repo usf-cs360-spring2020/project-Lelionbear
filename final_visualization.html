@@ -47,9 +47,9 @@
                   <svg style="background: whitesmoke;" id="vis_1"></svg>
                 </figure>
                 <p class="subtitle" align="center">
-                  Click on a genre/decade
+                  Hover over an arc for number of movies or
                   <br>
-                  Hover over an arc for number of movies
+                  click on a genre/decade
                 </p>
               </div>
             </div>
@@ -59,33 +59,62 @@
                 <figure>
                   <svg style="background: whitesmoke;" id="vis_2"></svg>
                 </figure>
-                <p class="subtitle" align="center">Hover over for more information</p>
+                <p class="subtitle" align="center">
+                  Hover over for more information
+                </p>
               </div>
             </div>
           </div>
-
-          <attributes>https://bl.ocks.org/denjn5/6d161cb24695c8df503f9109045ea629</attributes>
         </div>
 
         <h2 class="ttile" align="center">
           Encoding
         </h2>
         <p align="center">
-          TODO
+          Explain to general users how your data is encoded and how to interpret your visualization(s).
+          The sunburst visualization is the main visualization that contians all
+          of the collected movie data. The center represents the city of San Francisco
+          while the first ring (from inside to outside) represents the genre of
+          movies filmed in San Francisco. The second ring represents the movie's
+          release date within a 5 year section, the years focused are from 2000 and upwards.
+          <br><br>
+          The circlepacking visualization is derived from the sunburst data specifically
+          from the genre selected when clicked. The data is broken down into the
+          segmented year and then by the movie's release year. The sizes of the
+          innermost circles are represented by the revenue gained for that movie.
+          The hover interactivity displays this as the mouse is moved over each individual circle.
+          <br><br>
+          The dentree visualization is derived from the sunburst's segmented year, the second ring.
+          This tree is broken down by the release year followed by the movies in that year.
+          The hover interactivity displays the voted average for the movie based on the
+          obtained information from <a href="https://www.themoviedb.org/">The Movie Database (TMDB)</a>.
         </p>
 
         <h2 class="ttile" align="center">
           Interactivity
         </h2>
         <p align="center">
-          TODO
+          Start off with the sunburst visualization, this is the main display that
+          contains all the collected movie information. When the mouse hovers over
+          an arc, the number of movies within that arc is displayed. When an arc
+          is clicked, a second visualization is displayed. To unselect an arc simply
+          click the same arc.
+          <br><br>
+          Both circlepacking and dentree visualizations only do a mouseover interactivity.
+          On the circlepacking the title of the movie followed by the revenue gained is shown.
+          On the dentree the title of the movie followed by the vote average is shown.
         </p>
 
         <h2 class="ttile" align="center">
           Findings
         </h2>
         <p align="center">
-          TODO
+          A major finding from the visualizations is that a total of 41 movies fall under
+          the "Drama" genre, making it the most popular filming cannon in San Francisco.
+          Through the use of the circlepacking visualization, we can also display that
+          movies released after 2010 have a higher revenue than movies before 2010.
+          Additoanally, the average vote for movies can be seen to fluctuate leading
+          to an additoanl need of input data for a better accuracy of movie votes.
         </p>
 
 
