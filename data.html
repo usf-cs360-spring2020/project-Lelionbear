@@ -139,13 +139,13 @@
         </p>
         <div>
           <ul>
-            <li>budget</li>
-            <li>genres</li>
-            <li>imdb_id</li>
-            <li>realease_date</li>
-            <li>revenue</li>
-            <li>title</li>
-            <li>vote_average</li>
+            <li><b>budget</b></li>
+            <li><b>genres</b></li>
+            <li><b>imdb_id</b></li>
+            <li><b>realease_date</b></li>
+            <li><b>revenue</b></li>
+            <li><b>title</b></li>
+            <li><b>vote_average</b></li>
           </ul>
         </div>
 
@@ -154,13 +154,16 @@
           The "Film_Locations_in_San_Francisco.csv" Dataset was loaded into a <a href="https://github.com/usf-cs360-spring2020/project-Lelionbear/blob/gh-pages/wrangler.py">python script</a> to be processed.
           The script eleminated any repeated titles along with movies before the year 2000.
 
-          Once the filtered data has been collected, the script utilizes the TMDB API
+          Once the filtered data was collected, the script utilizes the TMDB API
           to request for movie details as a JSON object. Movies that were not found
           in API were disgarded from the collected movies.
 
           Once done, the script prints out each movie along with the targeted information
           from the JSON objects. Using the terminal to run the script the output
-          was piped out into a csv file "sunburst.csv"
+          was piped out into a csv file "sunburst.csv".
+          <br><br>
+          Movies that that had zeroed out values for targeted information were kept,
+          targeted information that could be zeroed out may include: <b>revenue, vote_average, and budget<b>.
         </p>
       </div>
       <!-- End page content -->
